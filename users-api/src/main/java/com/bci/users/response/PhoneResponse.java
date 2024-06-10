@@ -1,6 +1,5 @@
-package com.bci.users.request;
+package com.bci.users.response;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,10 +11,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class PhoneRequest implements Serializable {
+public class PhoneResponse implements Serializable {
     private String number;
-    @JsonProperty("citycode")
     private String cityCode;
-    @JsonProperty("countrycode")
     private String countryCode;
 }

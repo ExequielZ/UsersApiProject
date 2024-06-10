@@ -1,7 +1,7 @@
 package com.bci.users.controller;
 
-import com.bci.users.model.User;
 import com.bci.users.request.UserRequest;
+import com.bci.users.response.UserResponse;
 import com.bci.users.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,12 +21,13 @@ public class UserController {
     private UserService userService;
 
     @GetMapping()
-    public ResponseEntity<List<User>> findAll(){
+    public ResponseEntity<List<UserResponse>> findAll(){
         return ResponseEntity.ok(userService.findAll());
     }
 
     @PostMapping
-    public ResponseEntity<User> create(@RequestBody UserRequest userRequest){
+    public ResponseEntity<UserResponse> create(@RequestBody UserRequest userRequest){
         return ResponseEntity.ok(userService.create(userRequest));
     }
+
 }

@@ -1,5 +1,6 @@
 package com.bci.users.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -36,7 +37,14 @@ public class Phone {
     @Column(name = "COUNTRYCODE", nullable = false, length = 5)
     private String countryCode;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
+    public Phone(String number, String cityCode, String countryCode, User user) {
+        this.number = number;
+        this.cityCode = cityCode;
+        this.countryCode = countryCode;
+        this.user = user;
+    }
 }
